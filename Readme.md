@@ -71,9 +71,8 @@ This project is designed to analyze social media engagement data and generate ac
 3. Configure environment variables:
    - Create a `.env` file with the following:
      ```env
-     ASTRA_DB_CLIENT_ID=<your-client-id>
-     ASTRA_DB_CLIENT_SECRET=<your-client-secret>
-     OPENAI_API_KEY=<your-openai-api-key>
+     PORT=<your-port>
+     ASTRA_DB_TOKEN=<your-token>
      ```
 4. Start the server:
    ```bash
