@@ -76,7 +76,7 @@ export const getSingleMediaDetail = catchAsyncErrors(async (req, res, next) => {
 
 export const getInsight = catchAsyncErrors(async (req, res, next) => {
     try {
-        let {message} = req.body;
+        let {question} = req.body;
         const collection = db.collection('mediaDetails');
         const documents = await collection.find({}).toArray();
         const result = documents.reduce((acc, curr) => {
@@ -89,19 +89,19 @@ export const getInsight = catchAsyncErrors(async (req, res, next) => {
             return acc;
         }, {});
 
-        if(!message) {
+        if(!question) {
             return res.status(400).json({ success: false, error: 'Please ask a question! so I can help you.' });
         }
         
-         message += `Carousel posts have ${result.carousel.likes} likes, ${result.carousel.comments} comments, and ${result.carousel.shares} shares. 
+         question += `Carousel posts have ${result.carousel.likes} likes, ${result.carousel.comments} comments, and ${result.carousel.shares} shares. 
             Reels have ${result.reel.likes} likes, ${result.reel.comments} comments, and ${result.reel.shares} shares. 
             Static posts have ${result.static.likes} likes, ${result.static.comments} comments, and ${result.static.shares} shares.
             `
             // Generate insights about the performance of these post types.
-            // console.log(message);
+            // console.log(question);
         
         
-        const Response = await chatGPT(message);
+        const Response = await chatGPT(question);
 
         res.status(200).json({ success: true, data: Response });
     } catch (error) {
