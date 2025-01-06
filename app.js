@@ -2,14 +2,21 @@ import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
 import { connectDB } from "./AstraDb.js";
-// const cors = require('cors');
+import cors from 'cors';
 const PORT = process.env.PORT || 3000;
 
 dotenv.config({
     path: "./.env",
 })
 
+    app.use(cors(
+        {
+            origin: 'https://social-media-insight-frontend.vercel.app',
+            credentials: true,
+        }
+    ));
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 app.get("/", (req, res)=>{
     res.send("hello world");

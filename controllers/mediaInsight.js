@@ -79,21 +79,28 @@ export const getInsight = catchAsyncErrors(async (req, res, next) => {
         let {question} = req.body;
         const collection = db.collection('mediaDetails');
         const documents = await collection.find({}).toArray();
+        // console.log(documents);
         const result = documents.reduce((acc, curr) => {
+            const likes = Number(curr.likes);
+            const comments = Number(curr.comments);
+            const shares = Number(curr.shares);
+
             if (!acc[curr.postType]) {
                 acc[curr.postType] = { likes: 0, comments: 0, shares: 0 };
             }
-            acc[curr.postType].likes += curr.likes;
-            acc[curr.postType].comments += curr.comments;
-            acc[curr.postType].shares += curr.shares;
+            acc[curr.postType].likes += likes;
+            acc[curr.postType].comments += comments;
+            acc[curr.postType].shares += shares;
             return acc;
         }, {});
+        // console.log(result);
 
         if(!question) {
             return res.status(400).json({ success: false, error: 'Please ask a question! so I can help you.' });
         }
         
-         question += `Carousel posts have ${result.carousel.likes} likes, ${result.carousel.comments} comments, and ${result.carousel.shares} shares. 
+         question += `
+         Carousel posts have ${result.carousel.likes} likes, ${result.carousel.comments} comments, and ${result.carousel.shares} shares. 
             Reels have ${result.reel.likes} likes, ${result.reel.comments} comments, and ${result.reel.shares} shares. 
             Static posts have ${result.static.likes} likes, ${result.static.comments} comments, and ${result.static.shares} shares.
             `

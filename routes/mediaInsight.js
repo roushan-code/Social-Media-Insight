@@ -14,7 +14,7 @@ router.get("/get-media-details", getMediaDetails);
 router.route("/media-detail/:id").get(getSingleMediaDetail).put(updateMediaDetail).delete(deleteMediaDetail);
 
 // complete route -> /api/v1/get-insight
-router.get("/get-insight", getInsight);
+router.post("/get-insight", getInsight);
 
 
 export default router;
