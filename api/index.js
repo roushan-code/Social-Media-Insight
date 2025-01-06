@@ -1,7 +1,7 @@
 import express from 'express';
 const app = express();
 import dotenv from 'dotenv';
-import { connectDB } from "./AstraDb.js";
+import { connectDB } from "../AstraDb.js";
 import cors from 'cors';
 const PORT = process.env.PORT || 3000;
 
@@ -22,7 +22,7 @@ app.get("/", (req, res)=>{
     res.send("hello world");
 })
 
-import mediaInsight from "./routes/mediaInsight.js";
+import mediaInsight from "../routes/mediaInsight.js";
 
 app.use("/api/v1", mediaInsight);
 
