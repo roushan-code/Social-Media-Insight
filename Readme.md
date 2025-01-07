@@ -1,4 +1,9 @@
 # Social Media Performance Analysis Project
+## Frontend 
+- GitHub: https://github.com/roushan-code/Social-Media-Insight-frontend
+- Preview: https://social-media-insight-frontend.vercel.app/
+![image](https://github.com/user-attachments/assets/0c808f44-8f44-41a5-a933-a14a08df5225)
+
 
 ## Overview
 This project is designed to analyze social media engagement data and generate actionable insights using advanced tools such as Langflow, OpenAI, and Astra DB. It combines a backend built with Node.js and Express, integrated with Astra DB for database operations, and Langflow for GPT-based insights generation.
@@ -44,6 +49,11 @@ This project is designed to analyze social media engagement data and generate ac
      Queries data from Astra DB, combines it with user input, and sends it to Langflow for generating insights.
 
 ## Tech Stack
+- **Frontend**:
+  - Reactjs
+  - Material Ui
+  - Redux
+  - RTK Query
 - **Backend**:
   - Node.js
   - Express
@@ -54,6 +64,10 @@ This project is designed to analyze social media engagement data and generate ac
   - OpenAI
 
 ## How to Run
+### Frontend 
+- npm i 
+- npm run dev
+
 ### Prerequisites
 - Node.js installed on your machine.
 - Astra DB account and keyspace setup.
@@ -103,14 +117,7 @@ Generated insight from Langflow:
 ```
 
 ## Submission Requirements
-- Link your project to the Level Supermind Hackathon.
-- Record a demo video explaining:
-  - Langflow workflow.
-  - Database operations with Astra DB.
-  - Insights generation using Langflow.
-- Submit:
-  - GitHub repository link.
-  - Demo video link.
+  - Demo video link: https://youtu.be/tkE4ZR3itVo
 
 ## Contact
 If you have any questions or need further assistance, feel free to reach out!
